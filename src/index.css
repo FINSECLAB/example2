@@ -67,7 +67,7 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background: url('./걸어서고대속으로2-01.jpg') center/cover no-repeat;
+  background: url('/걸어서고대속으로2-01.jpg') center/cover no-repeat;
   background-attachment: fixed;
   background-size: cover;
   color: var(--text-primary);

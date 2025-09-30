@@ -4,16 +4,27 @@ const Contact = () => {
   return (
     <div className="page">
       <div className="container">
-        <h1 className="page-title">Contact</h1>
-        <div className="location-info" style={{marginTop: '1rem'}}>
-          <div className="contact">
-            <h4>연락처</h4>
-            <p>전화: 02-1234-5678</p>
-            <p>이메일: research@institute.ac.kr</p>
-          </div>
-          <div className="address">
-            <h4>주소</h4>
-            <p>서울특별시 강남구 테헤란로 123<br />연구소 빌딩 5층</p>
+        <h1 className="page-title">연락처</h1>
+        
+        <div className="subsection">
+          <h3>연구소 정보</h3>
+          <div className="research-grid">
+            <div className="research-card">
+              <h4>주소</h4>
+              <p>서울특별시 성북구 안암동 5가 1<br />고려대학교 정보보호연구소</p>
+            </div>
+            <div className="research-card">
+              <h4>전화</h4>
+              <p>02-3290-1234</p>
+            </div>
+            <div className="research-card">
+              <h4>이메일</h4>
+              <p>info@security.korea.ac.kr</p>
+            </div>
+            <div className="research-card">
+              <h4>운영시간</h4>
+              <p>평일 09:00 - 18:00</p>
+            </div>
           </div>
         </div>
       </div>
@@ -22,6 +33,3 @@ const Contact = () => {
 };
 
 export default Contact;
-
-
-
