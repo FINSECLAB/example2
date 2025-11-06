@@ -67,9 +67,6 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background: url('/걸어서고대속으로2-01.jpg') center/cover no-repeat;
-  background-attachment: fixed;
-  background-size: cover;
   color: var(--text-primary);
   line-height: 1.6;
   overflow-x: hidden;
@@ -77,6 +74,23 @@ body {
   padding: 0;
   min-height: 100vh;
   position: relative;
+}
+
+/* 배경 이미지 블러 효과 */
+body::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: url('/걸어서고대속으로2-01.jpg') center/cover no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+  filter: blur(var(--bg-blur, 0px));
+  z-index: -1;
+  transition: filter 0.3s ease-out;
+  will-change: filter;
 }
 
 /* ===== Layout ===== */
@@ -298,17 +312,6 @@ body {
 /* ===== Home Page ===== */
 .home-page {
   position: relative;
-}
-
-.background-overlay {
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: rgba(0, 0, 0, 1);
-  z-index: 2;
-  pointer-events: none;
 }
 
 .hero {
@@ -605,50 +608,116 @@ body {
 
 /* ===== Footer ===== */
 .footer {
-  background: var(--bg-secondary);
-  border-top: 1px solid var(--border);
-  padding: var(--space-12) 0 var(--space-8);
+  background: #2c2c2c;
   margin-top: auto;
+  padding: 0;
 }
 
-.footer-content {
-    display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  gap: var(--space-8);
-  margin-bottom: var(--space-8);
+.footer-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: var(--space-12) var(--space-8) var(--space-4);
 }
 
-.footer-section h4 {
-  font-size: 1.1rem;
-  font-weight: 600;
+/* Home 페이지 내 푸터 섹션 */
+.footer-section {
+  background: transparent;
+  padding: var(--space-16) 0;
+  margin-bottom: 0;
+  width: 100%;
+}
+
+/* 메인 푸터 상자 */
+.footer-box {
+  background: #ffffff;
+  border-radius: var(--radius-lg);
+  padding: var(--space-8);
+  margin: 0 auto var(--space-4);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  width: 90%;
+  max-width: 1200px;
+  box-sizing: border-box;
+}
+
+.footer-box-content {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-12);
+}
+
+.footer-box-section {
+  display: flex;
+  flex-direction: column;
+}
+
+.footer-box-title {
+  font-size: 1.2rem;
+  font-weight: 700;
   color: var(--text-primary);
   margin-bottom: var(--space-4);
-}
-
-.footer-section p {
-  color: var(--text-secondary);
-  margin-bottom: var(--space-2);
-}
-
-.logo-placeholder {
-  width: 120px;
-  height: 60px;
-  background: var(--bg-tertiary);
-  border: 2px dashed var(--border);
-  border-radius: var(--radius-md);
   display: flex;
   align-items: center;
-  justify-content: center;
-  color: var(--text-muted);
+  gap: var(--space-2);
+}
+
+.footer-icon {
+  font-size: 1.5rem;
+  color: #e74c3c;
+}
+
+.footer-box-section p {
+  color: var(--text-secondary);
+  line-height: 1.8;
+  margin: 0;
+  font-size: 0.95rem;
+}
+
+/* 하단 스트립 */
+.footer-bottom-strip {
+  background: #3a3a3a;
+  padding: var(--space-4) var(--space-8);
+  border-radius: var(--radius-md);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: var(--space-4);
+  width: 90%;
+  max-width: 1200px;
+  box-sizing: border-box;
+  margin: 0 auto;
+}
+
+.footer-links {
+  display: flex;
+  gap: var(--space-6);
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.footer-links a {
+  color: #e0e0e0;
+  text-decoration: none;
+  font-size: 0.875rem;
+  transition: color 0.2s ease;
+}
+
+.footer-links a:hover {
+  color: #ffffff;
+}
+
+.footer-ad {
+  color: #b0b0b0;
   font-size: 0.875rem;
 }
 
-.footer-bottom {
-    text-align: center;
-  padding-top: var(--space-6);
-  border-top: 1px solid var(--border);
-  color: var(--text-muted);
+.footer-copyright {
+  color: #b0b0b0;
   font-size: 0.875rem;
+}
+
+.footer-copyright p {
+  margin: 0;
 }
 
 /* ===== Responsive Design ===== */
@@ -704,10 +773,18 @@ body {
     padding: var(--space-6);
     }
 
-    .footer-content {
+    .footer-box-content {
         grid-template-columns: 1fr;
-    gap: var(--space-6);
+        gap: var(--space-8);
+    }
+    
+    .footer-bottom-strip {
+        flex-direction: column;
         text-align: center;
+    }
+    
+    .footer-links {
+        justify-content: center;
     }
 }
 

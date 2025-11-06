@@ -3,29 +3,59 @@ import { Link } from 'react-router-dom';
 
 const Home = () => {
   const [scrollY, setScrollY] = useState(0);
+  const [fixedBlur, setFixedBlur] = useState(null);
 
   useEffect(() => {
+    let ticking = false;
+    
     const handleScroll = () => {
-      setScrollY(window.scrollY);
+      if (!ticking) {
+        window.requestAnimationFrame(() => {
+          const currentScroll = window.scrollY;
+          const heroHeight = window.innerHeight; // hero 섹션 높이 (100vh)
+          const scrollDownThreshold = heroHeight * 0.8; // SCROLL DOWN이 사라지는 시점
+          
+          setScrollY(currentScroll);
+          
+          // SCROLL DOWN이 사라지는 시점에 도달했으면 블러 고정
+          if (currentScroll >= scrollDownThreshold && fixedBlur === null) {
+            const blurAtThreshold = Math.min(scrollDownThreshold / 150, 5); // 최대 5px
+            setFixedBlur(blurAtThreshold);
+          }
+          
+          ticking = false;
+        });
+        ticking = true;
+      }
     };
 
-    window.addEventListener('scroll', handleScroll);
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    handleScroll(); // 초기 계산
+    
     return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
+  }, [fixedBlur]);
 
-  // 스크롤 위치에 따라 어두움 정도 계산 (0~0.7)
-  const darkenOpacity = Math.min(scrollY / 800, 0.7);
+  // 블러 강도 계산
+  let blurAmount;
+  if (fixedBlur !== null) {
+    // SCROLL DOWN이 사라진 후에는 고정된 블러 값 사용
+    blurAmount = fixedBlur;
+  } else {
+    // SCROLL DOWN이 보이는 동안만 블러 증가 (더 약하게)
+    blurAmount = Math.min(scrollY / 150, 5); // 최대 5px, 더 천천히 증가
+  }
+
+  useEffect(() => {
+    // 배경 이미지만 블러 처리하기 위해 CSS 변수 설정
+    document.documentElement.style.setProperty('--bg-blur', `${blurAmount}px`);
+    
+    return () => {
+      document.documentElement.style.setProperty('--bg-blur', '0px');
+    };
+  }, [blurAmount]);
 
   return (
     <div className="home-page">
-      {/* 배경 어두워지는 오버레이 */}
-      <div 
-        className="background-overlay"
-        style={{
-          opacity: darkenOpacity,
-          transition: 'opacity 0.3s ease-out'
-        }}
-      />
       {/* Hero Section */}
       <section className="hero">
         <div className="hero-content animate-slide-up">
@@ -119,6 +149,42 @@ const Home = () => {
                 <Link to="/institute-news" className="text-link">더보기 →</Link>
               </div>
             </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Footer Box */}
+      <section className="section footer-section">
+        <div className="footer-box">
+          <div className="footer-box-content">
+            <div className="footer-box-section">
+              <h4 className="footer-box-title">
+                <span className="footer-icon">📍</span>
+                사무소 위치
+              </h4>
+              <p>서울특별시 강남구 테헤란로 123<br />연구소 빌딩 5층</p>
+            </div>
+            <div className="footer-box-section">
+              <h4 className="footer-box-title">
+                <span className="footer-icon">📞</span>
+                연락처
+              </h4>
+              <p>전화: 02-1234-5678<br />이메일: research@institute.ac.kr</p>
+            </div>
+          </div>
+        </div>
+        
+        {/* 하단 스트립 */}
+        <div className="footer-bottom-strip">
+          <div className="footer-links">
+            <Link to="/location">사무소위치</Link>
+            <Link to="/contact">연락처</Link>
+            <a href="#legal">법적고지</a>
+            <a href="#privacy">개인정보처리방침</a>
+            <a href="#accessibility">웹접근성</a>
+          </div>
+          <div className="footer-copyright">
+            <p>&copy; 2019-2025 연구소. All Rights Reserved.</p>
           </div>
         </div>
       </section>
