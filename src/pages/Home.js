@@ -1,9 +1,25 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
+import { setupPageAnimations } from '../utils/scrollAnimation';
 
 const Home = () => {
   const [scrollY, setScrollY] = useState(0);
   const [fixedBlur, setFixedBlur] = useState(null);
+
+  // 컴포넌트 마운트 시 초기화
+  useEffect(() => {
+    // 스크롤 위치를 맨 위로 리셋
+    window.scrollTo(0, 0);
+    
+    // 블러 상태 리셋
+    setFixedBlur(null);
+    setScrollY(0);
+    
+    // 스크롤 애니메이션 초기화
+    setTimeout(() => {
+      setupPageAnimations();
+    }, 100);
+  }, []);
 
   useEffect(() => {
     let ticking = false;

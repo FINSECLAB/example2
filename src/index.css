@@ -115,6 +115,20 @@ body::before {
   padding: 0 var(--space-8);
 }
 
+/* ===== Page Styles ===== */
+.page {
+  padding-top: 100px; /* 헤더 높이만큼 여백 추가 */
+  min-height: calc(100vh - 100px);
+}
+
+.page-title {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: var(--space-8);
+  text-align: center;
+}
+
 /* ===== Header ===== */
 .header {
   background: transparent;
@@ -176,7 +190,7 @@ body::before {
 .nav-link:hover,
 .nav-link.active {
   color: black;
-  background-color: rgba(255, 255, 255, 0.3);
+  background-color: transparent;
 }
 
 .dropdown {
@@ -185,7 +199,7 @@ body::before {
 
 .dropdown-menu {
     position: absolute;
-    top: 100%;
+    top: calc(100% + 10px);
     left: 0;
   background: rgba(0, 0, 0, 0.8);
   border: 1px solid rgba(255, 255, 255, 0.2);
@@ -197,7 +211,7 @@ body::before {
     visibility: hidden;
     transform: translateY(-10px);
   transition: all 0.2s ease;
-  z-index: 10;
+  z-index: 1000;
     list-style: none;
   padding: var(--space-2) 0;
 }
@@ -640,7 +654,7 @@ body::before {
 }
 
 .footer-box-content {
-  display: grid;
+    display: grid;
   grid-template-columns: 1fr 1fr;
   gap: var(--space-12);
 }

@@ -28,115 +28,41 @@ const Header = () => {
             </Link>
           </div>
           <ul className={`nav-menu ${isMenuOpen ? 'active' : ''}`}>
-            <li className="nav-item dropdown">
-              <span className="nav-link">연구소 소개</span>
-              <ul className="dropdown-menu">
-                <li>
-                  <Link 
-                    to="/vision" 
-                    className={isActive('/vision') ? 'active' : ''}
-                    onClick={closeMenu}
-                  >
-                    비전 및 미션
-                  </Link>
-                </li>
-                <li>
-                  <Link 
-                    to="/history" 
-                    className={isActive('/history') ? 'active' : ''}
-                    onClick={closeMenu}
-                  >
-                    연혁
-                  </Link>
-                </li>
-                <li>
-                  <Link 
-                    to="/research-areas" 
-                    className={isActive('/research-areas') ? 'active' : ''}
-                    onClick={closeMenu}
-                  >
-                    주요 연구 분야
-                  </Link>
-                </li>
-                <li>
-                  <Link 
-                    to="/location" 
-                    className={isActive('/location') ? 'active' : ''}
-                    onClick={closeMenu}
-                  >
-                    오시는 길
-                  </Link>
-                </li>
-              </ul>
+            <li className="nav-item">
+              <Link 
+                to="/vision" 
+                className={`nav-link ${isActive('/vision') ? 'active' : ''}`}
+                onClick={closeMenu}
+              >
+                About
+              </Link>
             </li>
-            <li className="nav-item dropdown">
-              <span className="nav-link">구성원</span>
-              <ul className="dropdown-menu">
-                <li>
-                  <Link 
-                    to="/faculty" 
-                    className={isActive('/faculty') ? 'active' : ''}
-                    onClick={closeMenu}
-                  >
-                    교수진/연구원
-                  </Link>
-                </li>
-                <li>
-                  <Link 
-                    to="/students" 
-                    className={isActive('/students') ? 'active' : ''}
-                    onClick={closeMenu}
-                  >
-                    대학원생
-                  </Link>
-                </li>
-              </ul>
+            <li className="nav-item">
+              <Link 
+                to="/faculty" 
+                className={`nav-link ${isActive('/faculty') || isActive('/students') ? 'active' : ''}`}
+                onClick={closeMenu}
+              >
+                People
+              </Link>
             </li>
-            <li className="nav-item dropdown">
-              <span className="nav-link">연구 실적</span>
-              <ul className="dropdown-menu">
-                <li>
-                  <Link 
-                    to="/papers" 
-                    className={isActive('/papers') ? 'active' : ''}
-                    onClick={closeMenu}
-                  >
-                    논문
-                  </Link>
-                </li>
-                <li>
-                  <Link 
-                    to="/conferences" 
-                    className={isActive('/conferences') ? 'active' : ''}
-                    onClick={closeMenu}
-                  >
-                    학회 발표
-                  </Link>
-                </li>
-              </ul>
+            <li className="nav-item">
+              <Link 
+                to="/papers" 
+                className={`nav-link ${isActive('/papers') || isActive('/conferences') ? 'active' : ''}`}
+                onClick={closeMenu}
+              >
+                Research
+              </Link>
             </li>
-            <li className="nav-item dropdown">
-              <span className="nav-link">소식</span>
-              <ul className="dropdown-menu">
-                <li>
-                  <Link 
-                    to="/announcements" 
-                    className={isActive('/announcements') ? 'active' : ''}
-                    onClick={closeMenu}
-                  >
-                    공지사항
-                  </Link>
-                </li>
-                <li>
-                  <Link 
-                    to="/institute-news" 
-                    className={isActive('/institute-news') ? 'active' : ''}
-                    onClick={closeMenu}
-                  >
-                    연구소 소식
-                  </Link>
-                </li>
-              </ul>
+            <li className="nav-item">
+              <Link 
+                to="/announcements" 
+                className={`nav-link ${isActive('/announcements') || isActive('/institute-news') ? 'active' : ''}`}
+                onClick={closeMenu}
+              >
+                News
+              </Link>
             </li>
             <li className="nav-item">
               <Link 
