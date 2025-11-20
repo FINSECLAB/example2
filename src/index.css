@@ -561,6 +561,162 @@ body::before {
   margin: 0;
 }
 
+/* ===== People Page ===== */
+.people-page {
+  padding-bottom: var(--space-16);
+}
+
+.people-section {
+  margin-bottom: var(--space-16);
+}
+
+.people-heading {
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: var(--space-8);
+  text-align: left;
+}
+
+.people-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: var(--space-6);
+}
+
+.people-card {
+  background: #ffffff;
+  border: 1px solid rgba(15, 23, 42, 0.08);
+  border-radius: var(--radius-lg);
+  padding: var(--space-6);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-4);
+  box-shadow: var(--shadow-sm);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.people-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-md);
+}
+
+.advisor-card {
+  flex-direction: row;
+  align-items: center;
+  gap: var(--space-8);
+}
+
+.people-photo-wrapper {
+  flex-shrink: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.people-photo {
+  width: 160px;
+  height: 200px;
+  object-fit: cover;
+  border-radius: var(--radius-lg);
+  background: var(--bg-tertiary);
+}
+
+.people-photo.large {
+  width: 200px;
+  height: 240px;
+  border-radius: var(--radius-xl);
+}
+
+.people-info {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+}
+
+.advisor-card .people-info {
+  text-align: left;
+}
+
+.people-name {
+  font-size: 1.3rem;
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.people-role {
+  font-size: 1rem;
+  color: var(--text-secondary);
+}
+
+.people-major {
+  font-size: 1rem;
+  color: var(--text-secondary);
+  font-weight: 500;
+}
+
+.people-detail-major {
+  font-size: 0.95rem;
+  color: var(--text-muted);
+}
+
+.people-cohort,
+.people-company {
+  font-size: 0.95rem;
+  color: var(--text-muted);
+}
+
+.people-meta {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+  font-size: 0.95rem;
+  color: var(--text-secondary);
+}
+
+.people-meta a {
+  color: var(--primary);
+  text-decoration: none;
+}
+
+.people-meta a:hover {
+  text-decoration: underline;
+}
+
+.people-links {
+  display: flex;
+  gap: var(--space-4);
+  margin-top: var(--space-3);
+}
+
+.people-links a {
+  color: var(--primary);
+  font-weight: 500;
+  text-decoration: none;
+}
+
+.people-links a:hover {
+  text-decoration: underline;
+}
+
+@media (max-width: 768px) {
+  .advisor-card {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .advisor-card .people-info {
+    text-align: center;
+    align-items: center;
+  }
+}
+
 /* News Lists */
 .news-list {
   flex: 1;
