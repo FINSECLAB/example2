@@ -14,6 +14,8 @@ import Conferences from './pages/Conferences';
 import Announcements from './pages/Announcements';
 import InstituteNews from './pages/InstituteNews';
 import JoinUs from './pages/JoinUs';
+import About from './pages/About';
+import News from './pages/News';
 import { setupPageAnimations } from './utils/scrollAnimation';
 
 function App() {
@@ -28,6 +30,8 @@ function App() {
         <main className="main-content">
           <Routes>
             <Route path="/" element={<Home />} />
+            <Route path="/about" element={<About />} />
+            <Route path="/news" element={<News />} />
             <Route path="/vision" element={<Vision />} />
             <Route path="/history" element={<History />} />
             <Route path="/research-areas" element={<ResearchAreas />} />

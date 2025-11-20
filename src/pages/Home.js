@@ -75,9 +75,8 @@ const Home = () => {
       {/* Hero Section */}
       <section className="hero">
         <div className="hero-content animate-slide-up">
-          <h1 className="hero-title">연구소</h1>
-          <p className="hero-subtitle">Research Institute</p>
-          <p className="hero-description">혁신적인 연구를 통해 미래를 선도하는 연구소</p>
+          <h1 className="hero-title">금융보안 연구실</h1>
+          <p className="hero-subtitle">Financial Security Lab</p>
         </div>
         <div className="scroll-hint">
           scroll down
@@ -91,9 +90,8 @@ const Home = () => {
             <div className="home-card">
               <h2 className="section-title small">연구소 소개</h2>
               <div className="intro-text">
-                <p>우리 연구소는 혁신적인 연구를 통해 미래를 선도하는 연구기관입니다. 세계 최고 수준의 연구 성과로 인류 발전에 기여하고, 창의적·혁신적 연구를 통해 새로운 지식 창출 및 사회 기여를 목표로 합니다.</p>
-                <p>다양한 연구 분야에서 우수한 연구진들이 협력하여 최첨단 연구를 수행하고 있으며, 국내외 학술 교류와 산업체와의 협력을 통해 연구 성과를 사회에 환원하고 있습니다.</p>
-                <p>지속적인 연구 개발과 혁신을 통해 미래 기술의 선도자 역할을 하며, 글로벌 경쟁력을 갖춘 연구 성과를 창출해 나가고 있습니다.</p>
+                <p>금융회사들은 지속적으로 발생하는 해킹 및 개인정보 유출 사고로 인해 정보보안을 강화하고 있습니다. 금융보안 연구실은 금융권 정보보안 법규, 정책, 기술에 대한 전문 연구를 수행합니다.</p>
+                <p>금융회사 보안 점검 방법론, 금융망 분리 규정, 전자금융시스템 보안 검증, 전자금융 인증기술 등에 대한 연구를 통해 전자금융거래법, 개인정보보호법, 신용정보보호법 등 관련 법규를 준수할 수 있도록 지원합니다.</p>
               </div>
             </div>
           </div>
@@ -108,16 +106,19 @@ const Home = () => {
               <h2 className="section-title small">주요 연구 분야</h2>
               <div className="research-grid compact">
                 <div className="research-card">
-                  <h4>기초과학</h4>
+                  <h4>금융보안 정책 및 법규 연구</h4>
                 </div>
                 <div className="research-card">
-                  <h4>인공지능</h4>
+                  <h4>금융권 해킹방지 연구</h4>
                 </div>
                 <div className="research-card">
-                  <h4>환경과학</h4>
+                  <h4>전자금융 인증기법 연구</h4>
                 </div>
                 <div className="research-card">
-                  <h4>생명과학</h4>
+                  <h4>전자금융기반시설 취약점 분석 및 모의해킹 연구</h4>
+                </div>
+                <div className="research-card">
+                  <h4>디지털자산 보안기술 연구</h4>
                 </div>
               </div>
             </div>
@@ -125,44 +126,54 @@ const Home = () => {
         </div>
       </section>
 
-      {/* Row 3: 공지사항 & 연구소 소식 (한 줄, 사진 형식) */}
+      {/* Row 3: 공지사항 & 연구소 소식 (위아래 배치) */}
       <section className="section news-section">
         <div className="container">
-          <div className="home-row two-col">
+          <div className="home-row one-col">
             <div className="home-card">
-              <h2 className="section-title small">공지사항</h2>
-              <div className="news-list">
-                <div className="news-item">
-                  <div className="news-date">2024.12.20</div>
-                  <h4>2025년 연구 프로젝트 공모 안내</h4>
-                  <p>새로운 연구 프로젝트 공모가 시작됩니다. 많은 참여 부탁드립니다.</p>
-                </div>
-                <div className="news-item">
-                  <div className="news-date">2024.12.15</div>
-                  <h4>연구소 세미나 일정 변경</h4>
-                  <p>12월 세미나 일정이 변경되었습니다. 자세한 내용은 공지사항을 확인해주세요.</p>
-                </div>
+              <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 'var(--space-6)' }}>
+                <h2 className="section-title small" style={{ marginBottom: 0 }}>Latest Activities</h2>
+                <Link to="/announcements" className="text-link" style={{ fontSize: '0.9rem' }}>more</Link>
               </div>
-              <div className="home-actions">
-                <Link to="/announcements" className="text-link">더보기 →</Link>
+              <div className="news-list" style={{ overflow: 'hidden' }}>
+                <div className="news-item">
+                  <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. (09/2025)</p>
+                </div>
+                <div className="news-item">
+                  <p>Lorem Ipsum has been the industry's standard dummy text ever since the 1500s. (09/2025)</p>
+                </div>
+                <div className="news-item">
+                  <p>When an unknown printer took a galley of type and scrambled it. (06/2025)</p>
+                </div>
+                <div className="news-item">
+                  <p>It has survived not only five centuries, but also the leap into electronic typesetting. (05/2025)</p>
+                </div>
+                <div className="news-item">
+                  <p>It was popularised in the 1960s with the release of Letraset sheets. (04/2025)</p>
+                </div>
               </div>
             </div>
             <div className="home-card">
-              <h2 className="section-title small">연구소 소식</h2>
-              <div className="news-list">
-                <div className="news-item">
-                  <div className="news-date">2024.12.20</div>
-                  <h4>국제 학술지 논문 게재 성과</h4>
-                  <p>우리 연구소의 연구 성과가 국제 학술지에 게재되었습니다.</p>
-                </div>
-                <div className="news-item">
-                  <div className="news-date">2024.12.18</div>
-                  <h4>연구비 지원 확정</h4>
-                  <p>정부 연구비 지원이 확정되어 새로운 연구 프로젝트를 진행할 예정입니다.</p>
-                </div>
+              <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 'var(--space-6)' }}>
+                <h2 className="section-title small" style={{ marginBottom: 0 }}>NetLab News</h2>
+                <Link to="/institute-news" className="text-link" style={{ fontSize: '0.9rem' }}>more</Link>
               </div>
-              <div className="home-actions">
-                <Link to="/institute-news" className="text-link">더보기 →</Link>
+              <div className="news-list" style={{ overflow: 'hidden' }}>
+                <div className="news-item">
+                  <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. (04/2024)</p>
+                </div>
+                <div className="news-item">
+                  <p>Lorem Ipsum has been the industry's standard dummy text ever since the 1500s. (05/2023)</p>
+                </div>
+                <div className="news-item">
+                  <p>When an unknown printer took a galley of type and scrambled it. (04/2023)</p>
+                </div>
+                <div className="news-item">
+                  <p>It has survived not only five centuries, but also the leap into electronic typesetting. (04/2023)</p>
+                </div>
+                <div className="news-item">
+                  <p>It was popularised in the 1960s with the release of Letraset sheets. (04/2023)</p>
+                </div>
               </div>
             </div>
           </div>

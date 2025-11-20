@@ -1,10 +1,21 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import './Header.css';
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isScrolled, setIsScrolled] = useState(false);
   const location = useLocation();
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const scrollPosition = window.scrollY;
+      setIsScrolled(scrollPosition > 50);
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
 
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
@@ -19,7 +30,7 @@ const Header = () => {
   };
 
   return (
-    <header className="header">
+    <header className={`header ${isScrolled ? 'scrolled' : ''}`}>
       <nav className="navbar">
         <div className="nav-container">
           <div className="nav-logo">
@@ -30,8 +41,8 @@ const Header = () => {
           <ul className={`nav-menu ${isMenuOpen ? 'active' : ''}`}>
             <li className="nav-item">
               <Link 
-                to="/vision" 
-                className={`nav-link ${isActive('/vision') ? 'active' : ''}`}
+                to="/about" 
+                className={`nav-link ${isActive('/about') ? 'active' : ''}`}
                 onClick={closeMenu}
               >
                 About
@@ -57,8 +68,8 @@ const Header = () => {
             </li>
             <li className="nav-item">
               <Link 
-                to="/announcements" 
-                className={`nav-link ${isActive('/announcements') || isActive('/institute-news') ? 'active' : ''}`}
+                to="/news" 
+                className={`nav-link ${isActive('/news') || isActive('/announcements') || isActive('/institute-news') ? 'active' : ''}`}
                 onClick={closeMenu}
               >
                 News

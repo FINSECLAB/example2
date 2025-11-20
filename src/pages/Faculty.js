@@ -1,14 +1,12 @@
 import React from 'react';
 
 const advisor = {
-  name: 'Jeongho Kwak',
-  title: 'Associate Professor',
-  email: 'jeonghokwak@korea.ac.kr',
-  office: 'No. 406, Woojung Hall of Informatics',
-  phone: '(+82)02-3290-3971',
-  homepage: '#',
-  calendar: '#',
-  photo: 'https://via.placeholder.com/240x280?text=JK',
+  name: '강형우',
+  title: 'Professor',
+  email: 'kanghw@korea.ac.kr',
+  office: '정운오IT교양관 313호',
+  researchAreas: '금융보안, 가상자산보안',
+  photo: '/KakaoTalk_20251111_155756293.jpg',
 };
 
 const fullTimeStudents = [
@@ -240,13 +238,9 @@ const Faculty = () => {
               <p className="people-role">{advisor.title}</p>
               <ul className="people-meta">
                 <li>이메일: <a href={`mailto:${advisor.email}`}>{advisor.email}</a></li>
-                <li>오피스: {advisor.office}</li>
-                <li>전화: {advisor.phone}</li>
+                <li>연구실: {advisor.office}</li>
+                <li>분야: {advisor.researchAreas}</li>
               </ul>
-              <div className="people-links">
-                <a href={advisor.homepage}>Homepage</a>
-                <a href={advisor.calendar}>Calendar</a>
-              </div>
             </div>
           </div>
         </section>
