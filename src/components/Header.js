@@ -35,6 +35,7 @@ const Header = () => {
         <div className="nav-container">
           <div className="nav-logo">
             <Link to="/">
+              <img src="/finsec.png" alt="FinSec Lab Logo" className="nav-logo-img" />
               <h1>finsec lab</h1>
             </Link>
           </div>

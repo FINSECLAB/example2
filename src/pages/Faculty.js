@@ -1,12 +1,14 @@
 import React from 'react';
 
 const advisor = {
-  name: '강형우',
-  title: 'Professor',
-  email: 'kanghw@korea.ac.kr',
-  office: '정운오IT교양관 313호',
-  researchAreas: '금융보안, 가상자산보안',
-  photo: '/KakaoTalk_20251111_155756293.jpg',
+  name: 'Jeongho Kwak',
+  title: 'Associate Professor',
+  email: 'jeonghokwak@korea.ac.kr',
+  office: 'No. 406, Woojung Hall of Informatics',
+  phone: '(+82)02-3290-3971',
+  homepage: '#',
+  calendar: '#',
+  photo: '/연구실 인원 사진/강형우 교수님.jpg',
 };
 
 const fullTimeStudents = [
@@ -16,7 +18,7 @@ const fullTimeStudents = [
     major: '융합보안',
     detailMajor: '디지털금융보안',
     university: '한림대/컴퓨터공학',
-    photo: 'https://via.placeholder.com/180x220?text=배준호',
+    photo: '/연구실 인원 사진/배준호.png',
   },
   {
     name: '손예원',
@@ -24,7 +26,7 @@ const fullTimeStudents = [
     major: '정보보안',
     detailMajor: '금융보안',
     university: '학점은행제',
-    photo: 'https://via.placeholder.com/180x220?text=손예원',
+    photo: '/연구실 인원 사진/손예원.jpg',
   },
   {
     name: '박천호',
@@ -32,7 +34,7 @@ const fullTimeStudents = [
     major: '정보보안',
     detailMajor: '정보보안정책',
     university: '동서울대/사이버보안학',
-    photo: 'https://via.placeholder.com/180x220?text=박천호',
+    photo: '/연구실 인원 사진/박천호.jpg',
   },
   {
     name: '임시온',
@@ -40,7 +42,7 @@ const fullTimeStudents = [
     major: '정보보안',
     detailMajor: '정보보안정책',
     university: '덕성여대/사이버보안전공',
-    photo: 'https://via.placeholder.com/180x220?text=임시온',
+    photo: '/연구실 인원 사진/임시온.JPG',
   },
   {
     name: '김준호',
@@ -75,7 +77,7 @@ const partTimeStudents = [
     name: '김강철',
     cohort: '석사 47기',
     company: '한국예탁결제원',
-    photo: 'https://via.placeholder.com/180x220?text=김강철',
+    photo: '/연구실 인원 사진/김강철.png',
   },
   {
     name: '유범석',
@@ -99,7 +101,7 @@ const partTimeStudents = [
     name: '박성수',
     cohort: '석사 49기',
     company: '농협은행',
-    photo: 'https://via.placeholder.com/180x220?text=박성수',
+    photo: '/연구실 인원 사진/박성수.jpg',
   },
   {
     name: '장은지',
@@ -111,13 +113,13 @@ const partTimeStudents = [
     name: '이재형',
     cohort: '석사 49기',
     company: '신한투자증권',
-    photo: 'https://via.placeholder.com/180x220?text=이재형',
+    photo: '/연구실 인원 사진/이재형.jpg',
   },
   {
     name: '정혜성',
     cohort: '석사 49기',
     company: '금융보안원',
-    photo: 'https://via.placeholder.com/180x220?text=정혜성',
+    photo: '/연구실 인원 사진/정혜성.jpg',
   },
   {
     name: '유효종',
@@ -129,13 +131,13 @@ const partTimeStudents = [
     name: '정용준',
     cohort: '석사 49기',
     company: '신한투자증권',
-    photo: 'https://via.placeholder.com/180x220?text=정용준',
+    photo: '/연구실 인원 사진/정용준.jpg',
   },
   {
     name: '백승미',
     cohort: '석사 49기',
     company: '삼성 SDS',
-    photo: 'https://via.placeholder.com/180x220?text=백승미',
+    photo: '/연구실 인원 사진/백승미.jpg',
   },
   {
     name: '유정재',
@@ -159,7 +161,7 @@ const partTimeStudents = [
     name: '김정훈',
     cohort: '석사 49기',
     company: '넷마블',
-    photo: 'https://via.placeholder.com/180x220?text=김정훈',
+    photo: '/연구실 인원 사진/김정훈.jpg',
   },
   {
     name: '백하나',
@@ -171,7 +173,7 @@ const partTimeStudents = [
     name: '양병수',
     cohort: '석사 49기',
     company: '교보증권',
-    photo: 'https://via.placeholder.com/180x220?text=양병수',
+    photo: '/연구실 인원 사진/양병수.png',
   },
   {
     name: '박지영',
@@ -213,7 +215,7 @@ const partTimeStudents = [
     name: '어진철',
     cohort: '석사 50기',
     company: '시큐아이',
-    photo: 'https://via.placeholder.com/180x220?text=어진철',
+    photo: '/연구실 인원 사진/어진철.jpeg',
   },
 ];
 
@@ -238,9 +240,13 @@ const Faculty = () => {
               <p className="people-role">{advisor.title}</p>
               <ul className="people-meta">
                 <li>이메일: <a href={`mailto:${advisor.email}`}>{advisor.email}</a></li>
-                <li>연구실: {advisor.office}</li>
-                <li>분야: {advisor.researchAreas}</li>
+                <li>오피스: {advisor.office}</li>
+                <li>전화: {advisor.phone}</li>
               </ul>
+              <div className="people-links">
+                <a href={advisor.homepage}>Homepage</a>
+                <a href={advisor.calendar}>Calendar</a>
+              </div>
             </div>
           </div>
         </section>

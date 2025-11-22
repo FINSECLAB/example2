@@ -29,11 +29,12 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
+  position: relative;
 }
 
 .nav-logo h1 {
   color: black;
-  font-size: 1.8rem;
+  font-size: 1.4rem;
   font-weight: 700;
   margin: 0;
   transition: color 0.3s ease;
@@ -43,16 +44,33 @@
   color: white;
 }
 
+.nav-logo {
+  display: flex;
+  align-items: center;
+  position: absolute;
+  left: calc(-1 * var(--space-4));
+}
+
 .nav-logo a {
   text-decoration: none;
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+}
+
+.nav-logo-img {
+  height: 40px;
+  width: auto;
+  object-fit: contain;
 }
 
 .nav-menu {
   display: flex;
   list-style: none;
-  gap: var(--space-2);
+  gap: var(--space-4);
   margin: 0;
   padding: 0;
+  margin-left: auto;
 }
 
 .nav-item {

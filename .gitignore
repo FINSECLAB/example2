@@ -80,3 +80,7 @@ jspm_packages/
 
 # PDF files
 *.pdf
+
+# 연구실 인원 사진
+연구실 인원 사진/
+public/연구실 인원 사진/
