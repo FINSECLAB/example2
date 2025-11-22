@@ -1,13 +1,10 @@
 import React from 'react';
 
 const advisor = {
-  name: 'Jeongho Kwak',
-  title: 'Associate Professor',
-  email: 'jeonghokwak@korea.ac.kr',
-  office: 'No. 406, Woojung Hall of Informatics',
-  phone: '(+82)02-3290-3971',
-  homepage: '#',
-  calendar: '#',
+  name: '강형우',
+  email: 'kanghw@korea.ac.kr',
+  office: '정운오IT교양관 313호',
+  researchArea: '금융보안, 가상자산보안',
   photo: '/연구실 인원 사진/강형우 교수님.jpg',
 };
 
@@ -237,16 +234,11 @@ const Faculty = () => {
             </div>
             <div className="people-info">
               <h3 className="people-name">{advisor.name}</h3>
-              <p className="people-role">{advisor.title}</p>
               <ul className="people-meta">
                 <li>이메일: <a href={`mailto:${advisor.email}`}>{advisor.email}</a></li>
-                <li>오피스: {advisor.office}</li>
-                <li>전화: {advisor.phone}</li>
+                <li>연구실: {advisor.office}</li>
+                <li>분야: {advisor.researchArea}</li>
               </ul>
-              <div className="people-links">
-                <a href={advisor.homepage}>Homepage</a>
-                <a href={advisor.calendar}>Calendar</a>
-              </div>
             </div>
           </div>
         </section>
