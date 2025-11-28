@@ -14,7 +14,7 @@
   min-height: 100vh;
   border-radius: 0;
   box-shadow: none;
-  margin-top: 100px; /* 헤더 높이만큼만 */
+  margin-top: 70px; /* 헤더 높이만큼만 */
 }
 
 .news-content {
@@ -30,7 +30,7 @@
   font-size: 2.5rem;
   font-weight: 700;
   color: var(--text-primary);
-  margin: 0 0 var(--space-8) 0;
+  margin: var(--space-2) 0 var(--space-8) 0;
 }
 
 .news-content p {
@@ -44,14 +44,18 @@
 @media (max-width: 768px) {
   .news-container {
     width: 90%;
+    margin-top: 0;
+    padding-top: 0;
   }
 
   .news-content {
-    padding: var(--space-10) var(--space-6);
+    padding: var(--space-12) var(--space-6);
+    padding-top: var(--space-16);
   }
 
   .news-title {
     font-size: 2rem;
+    margin-top: var(--space-6);
   }
 
   .news-content p {
@@ -66,10 +70,12 @@
 
   .news-content {
     padding: var(--space-8) var(--space-4);
+    padding-top: var(--space-16);
   }
 
   .news-title {
     font-size: 1.75rem;
+    margin-top: var(--space-6);
   }
 
   .news-content p {

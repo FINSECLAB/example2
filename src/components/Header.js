@@ -47,7 +47,7 @@ const Header = () => {
         <div className="nav-container">
           <div className="nav-logo">
             <Link to="/" onClick={handleLogoClick}>
-              <img src="/finsec.png" alt="FinSec Lab Logo" className="nav-logo-img" />
+              <img src={`${process.env.PUBLIC_URL}/finsec.png`} alt="FinSec Lab Logo" className="nav-logo-img" />
               <h1>Finsec lab</h1>
             </Link>
           </div>

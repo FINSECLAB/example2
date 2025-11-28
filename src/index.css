@@ -84,7 +84,7 @@ body::before {
   left: 0;
   right: 0;
   bottom: 0;
-  background: url('/걸어서고대속으로2-01.jpg') center/cover no-repeat;
+  background: var(--bg-image, url('/걸어서고대속으로2-01.jpg')) center/cover no-repeat;
   background-attachment: fixed;
   background-size: cover;
   filter: blur(var(--bg-blur, 0px));
@@ -978,6 +978,16 @@ body::before {
     .footer-links {
         justify-content: center;
     }
+
+  /* People page - no extra padding */
+  .people-page {
+    padding-top: 0;
+  }
+
+  .page-title {
+    padding-top: 0;
+    margin-top: 0;
+  }
 }
 
 @media (max-width: 480px) {

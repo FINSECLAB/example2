@@ -10,7 +10,7 @@ const Contact = () => {
             <h3>지도</h3>
             <div className="map-wrapper">
               <img 
-                src="/연구실위치.png" 
+                src={`${process.env.PUBLIC_URL}/연구실위치.png`} 
                 alt="연구실 위치 지도" 
                 className="map-image"
               />
