@@ -15,7 +15,7 @@ const ProfessorKang = () => {
             <div className="basic-info-wrapper">
               <div className="professor-photo-wrapper">
                 <img
-                  src="/연구실 인원 사진/강형우 교수님.jpg"
+                  src="/people-photos/강형우 교수님.jpg"
                   alt="강형우 교수 프로필"
                   className="professor-photo"
                 />

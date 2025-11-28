@@ -14,7 +14,7 @@
   min-height: 100vh;
   border-radius: 0;
   box-shadow: none;
-  margin-top: 70px; /* 헤더 높이만큼만 */
+  margin-top: 100px; /* 헤더 높이만큼만 */
 }
 
 .papers-content {
