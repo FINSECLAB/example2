@@ -9,6 +9,7 @@ import History from './pages/History';
 import ResearchAreas from './pages/ResearchAreas';
 import Location from './pages/Location';
 import Faculty from './pages/Faculty';
+import ProfessorKang from './pages/ProfessorKang';
 import Students from './pages/Students';
 import Papers from './pages/Papers';
 import Conferences from './pages/Conferences';
@@ -39,13 +40,14 @@ function App() {
             <Route path="/research-areas" element={<ResearchAreas />} />
             <Route path="/location" element={<Location />} />
             <Route path="/faculty" element={<Faculty />} />
+            <Route path="/professor-kang" element={<ProfessorKang />} />
             <Route path="/students" element={<Students />} />
             <Route path="/papers" element={<Papers />} />
             <Route path="/conferences" element={<Conferences />} />
             <Route path="/announcements" element={<Announcements />} />
             <Route path="/institute-news" element={<InstituteNews />} />
-            <Route path="/join-us" element={<JoinUs />} />
             <Route path="/contact" element={<Contact />} />
+            <Route path="/projects" element={<JoinUs />} />
           </Routes>
         </main>
       </div>

@@ -29,14 +29,26 @@ const Header = () => {
     return location.pathname === path;
   };
 
+  const handleLogoClick = (e) => {
+    // 메인 화면에 있을 때도 맨 위로 스크롤
+    if (location.pathname === '/') {
+      e.preventDefault();
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+    closeMenu();
+  };
+
+  // 메인 페이지가 아닐 때는 항상 크림슨 색상 표시
+  const shouldShowCrimson = location.pathname !== '/';
+
   return (
-    <header className={`header ${isScrolled ? 'scrolled' : ''}`}>
+    <header className={`header ${isScrolled || shouldShowCrimson ? 'scrolled' : ''}`}>
       <nav className="navbar">
         <div className="nav-container">
           <div className="nav-logo">
-            <Link to="/">
+            <Link to="/" onClick={handleLogoClick}>
               <img src="/finsec.png" alt="FinSec Lab Logo" className="nav-logo-img" />
-              <h1>finsec lab</h1>
+              <h1>Finsec lab</h1>
             </Link>
           </div>
           <ul className={`nav-menu ${isMenuOpen ? 'active' : ''}`}>
@@ -64,7 +76,7 @@ const Header = () => {
                 className={`nav-link ${isActive('/papers') || isActive('/conferences') ? 'active' : ''}`}
                 onClick={closeMenu}
               >
-                Research
+                Publications
               </Link>
             </li>
             <li className="nav-item">
@@ -78,11 +90,20 @@ const Header = () => {
             </li>
             <li className="nav-item">
               <Link 
-                to="/join-us" 
-                className={`nav-link ${isActive('/join-us') ? 'active' : ''}`}
+                to="/projects" 
+                className={`nav-link ${isActive('/projects') ? 'active' : ''}`}
                 onClick={closeMenu}
               >
-                Join Us
+                Projects
+              </Link>
+            </li>
+            <li className="nav-item">
+              <Link 
+                to="/contact" 
+                className={`nav-link ${isActive('/contact') ? 'active' : ''}`}
+                onClick={closeMenu}
+              >
+                Contact
               </Link>
             </li>
           </ul>

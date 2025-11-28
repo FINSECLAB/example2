@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { setupPageAnimations } from '../utils/scrollAnimation';
+import { getLatestNews } from '../data/newsData';
 
 const Home = () => {
   const [scrollY, setScrollY] = useState(0);
@@ -126,54 +127,21 @@ const Home = () => {
         </div>
       </section>
 
-      {/* Row 3: 공지사항 & 연구소 소식 (위아래 배치) */}
+      {/* Row 3: 최근 소식 (통합, 최근 5개) */}
       <section className="section news-section">
         <div className="container">
           <div className="home-row one-col">
             <div className="home-card">
               <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 'var(--space-6)' }}>
-                <h2 className="section-title small" style={{ marginBottom: 0 }}>Latest Activities</h2>
-                <Link to="/announcements" className="text-link" style={{ fontSize: '0.9rem' }}>more</Link>
+                <h2 className="section-title small" style={{ marginBottom: 0 }}>최근 소식</h2>
+                <Link to="/news" className="text-link" style={{ fontSize: '0.9rem' }}>more</Link>
               </div>
               <div className="news-list" style={{ overflow: 'hidden' }}>
-                <div className="news-item">
-                  <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. (09/2025)</p>
-                </div>
-                <div className="news-item">
-                  <p>Lorem Ipsum has been the industry's standard dummy text ever since the 1500s. (09/2025)</p>
-                </div>
-                <div className="news-item">
-                  <p>When an unknown printer took a galley of type and scrambled it. (06/2025)</p>
-                </div>
-                <div className="news-item">
-                  <p>It has survived not only five centuries, but also the leap into electronic typesetting. (05/2025)</p>
-                </div>
-                <div className="news-item">
-                  <p>It was popularised in the 1960s with the release of Letraset sheets. (04/2025)</p>
-                </div>
-              </div>
-            </div>
-            <div className="home-card">
-              <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 'var(--space-6)' }}>
-                <h2 className="section-title small" style={{ marginBottom: 0 }}>NetLab News</h2>
-                <Link to="/institute-news" className="text-link" style={{ fontSize: '0.9rem' }}>more</Link>
-              </div>
-              <div className="news-list" style={{ overflow: 'hidden' }}>
-                <div className="news-item">
-                  <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. (04/2024)</p>
-                </div>
-                <div className="news-item">
-                  <p>Lorem Ipsum has been the industry's standard dummy text ever since the 1500s. (05/2023)</p>
-                </div>
-                <div className="news-item">
-                  <p>When an unknown printer took a galley of type and scrambled it. (04/2023)</p>
-                </div>
-                <div className="news-item">
-                  <p>It has survived not only five centuries, but also the leap into electronic typesetting. (04/2023)</p>
-                </div>
-                <div className="news-item">
-                  <p>It was popularised in the 1960s with the release of Letraset sheets. (04/2023)</p>
-                </div>
+                {getLatestNews(5).map((news) => (
+                  <div key={news.id} className="news-item">
+                    <p>[{news.date}] {news.title}</p>
+                  </div>
+                ))}
               </div>
             </div>
           </div>
@@ -186,32 +154,16 @@ const Home = () => {
           <div className="footer-box-content">
             <div className="footer-box-section">
               <h4 className="footer-box-title">
-                <span className="footer-icon">📍</span>
-                사무소 위치
+                연구실 위치
               </h4>
-              <p>서울특별시 강남구 테헤란로 123<br />연구소 빌딩 5층</p>
+              <p>서울 성북구 안암로 145<br />고려대학교 안암캠퍼스<br />로봇융합관 204호</p>
             </div>
             <div className="footer-box-section">
               <h4 className="footer-box-title">
-                <span className="footer-icon">📞</span>
                 연락처
               </h4>
-              <p>전화: 02-1234-5678<br />이메일: research@institute.ac.kr</p>
+              <p>02-3290-5944</p>
             </div>
-          </div>
-        </div>
-        
-        {/* 하단 스트립 */}
-        <div className="footer-bottom-strip">
-          <div className="footer-links">
-            <Link to="/location">사무소위치</Link>
-            <Link to="/contact">연락처</Link>
-            <a href="#legal">법적고지</a>
-            <a href="#privacy">개인정보처리방침</a>
-            <a href="#accessibility">웹접근성</a>
-          </div>
-          <div className="footer-copyright">
-            <p>&copy; 2019-2025 연구소. All Rights Reserved.</p>
           </div>
         </div>
       </section>

@@ -11,16 +11,16 @@ const Footer = () => {
             <div className="footer-box-section">
               <h4 className="footer-box-title">
                 <span className="footer-icon">📍</span>
-                사무소 위치
+                연구실 위치
               </h4>
-              <p>서울특별시 강남구 테헤란로 123<br />연구소 빌딩 5층</p>
+              <p>서울 성북구 안암로 145<br />고려대학교 안암캠퍼스<br />로봇융합관 204호</p>
             </div>
             <div className="footer-box-section">
               <h4 className="footer-box-title">
                 <span className="footer-icon">📞</span>
                 연락처
               </h4>
-              <p>전화: 02-1234-5678<br />이메일: research@institute.ac.kr</p>
+              <p>02-3290-5944</p>
             </div>
           </div>
         </div>
@@ -28,7 +28,7 @@ const Footer = () => {
         {/* 하단 스트립 */}
         <div className="footer-bottom-strip">
           <div className="footer-links">
-            <Link to="/location">사무소위치</Link>
+            <Link to="/location">연구실위치</Link>
             <Link to="/contact">연락처</Link>
             <a href="#legal">법적고지</a>
             <a href="#privacy">개인정보처리방침</a>

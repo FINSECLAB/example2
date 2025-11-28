@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 const advisor = {
   name: '강형우',
@@ -14,7 +15,6 @@ const fullTimeStudents = [
     cohort: '석사 47기',
     major: '융합보안',
     detailMajor: '디지털금융보안',
-    university: '한림대/컴퓨터공학',
     photo: '/연구실 인원 사진/배준호.png',
   },
   {
@@ -22,7 +22,6 @@ const fullTimeStudents = [
     cohort: '석사 48기',
     major: '정보보안',
     detailMajor: '금융보안',
-    university: '학점은행제',
     photo: '/연구실 인원 사진/손예원.jpg',
   },
   {
@@ -30,7 +29,6 @@ const fullTimeStudents = [
     cohort: '석사 50기',
     major: '정보보안',
     detailMajor: '정보보안정책',
-    university: '동서울대/사이버보안학',
     photo: '/연구실 인원 사진/박천호.jpg',
   },
   {
@@ -38,7 +36,6 @@ const fullTimeStudents = [
     cohort: '석사 50기',
     major: '정보보안',
     detailMajor: '정보보안정책',
-    university: '덕성여대/사이버보안전공',
     photo: '/연구실 인원 사진/임시온.JPG',
   },
   {
@@ -46,8 +43,7 @@ const fullTimeStudents = [
     cohort: '학부생',
     major: '-',
     detailMajor: '심화전공',
-    university: '고려대/컴퓨터',
-    photo: 'https://via.placeholder.com/180x220?text=김준호',
+    photo: '/연구실 인원 사진/김준호.JPG',
   },
 ];
 
@@ -56,19 +52,19 @@ const partTimeStudents = [
     name: '박민주',
     cohort: '석사 47기',
     company: 'UBS 증권',
-    photo: 'https://via.placeholder.com/180x220?text=박민주',
+    photo: '/익명.png',
   },
   {
     name: '이상훈',
     cohort: '석사 47기',
     company: '금융감독원',
-    photo: 'https://via.placeholder.com/180x220?text=이상훈',
+    photo: '/익명.png',
   },
   {
     name: '남현수',
     cohort: '석사 47기',
     company: '금융감독원',
-    photo: 'https://via.placeholder.com/180x220?text=남현수',
+    photo: '/익명.png',
   },
   {
     name: '김강철',
@@ -80,37 +76,37 @@ const partTimeStudents = [
     name: '유범석',
     cohort: '석사 47기',
     company: 'LS증권',
-    photo: 'https://via.placeholder.com/180x220?text=유범석',
+    photo: '/익명.png',
   },
   {
     name: '성호열',
     cohort: '석사 49기',
     company: '우리은행',
-    photo: 'https://via.placeholder.com/180x220?text=성호열',
+    photo: '/익명.png',
   },
   {
     name: '이동운',
     cohort: '석사 49기',
     company: '안랩',
-    photo: 'https://via.placeholder.com/180x220?text=이동운',
+    photo: '/익명.png',
   },
   {
     name: '박성수',
     cohort: '석사 49기',
     company: '농협은행',
-    photo: '/연구실 인원 사진/박성수.jpg',
+    photo: '/익명.png',
   },
   {
     name: '장은지',
     cohort: '석사 49기',
     company: '신한은행',
-    photo: 'https://via.placeholder.com/180x220?text=장은지',
+    photo: '/익명.png',
   },
   {
     name: '이재형',
     cohort: '석사 49기',
     company: '신한투자증권',
-    photo: '/연구실 인원 사진/이재형.jpg',
+    photo: '/익명.png',
   },
   {
     name: '정혜성',
@@ -122,7 +118,7 @@ const partTimeStudents = [
     name: '유효종',
     cohort: '석사 49기',
     company: '한국산업은행',
-    photo: 'https://via.placeholder.com/180x220?text=유효종',
+    photo: '/익명.png',
   },
   {
     name: '정용준',
@@ -140,19 +136,19 @@ const partTimeStudents = [
     name: '유정재',
     cohort: '석사 49기',
     company: 'IR큐더스',
-    photo: 'https://via.placeholder.com/180x220?text=유정재',
+    photo: '/익명.png',
   },
   {
     name: '류신영',
     cohort: '석사 49기',
     company: '글로벌사이버인재양성 프로그램 참여',
-    photo: 'https://via.placeholder.com/180x220?text=류신영',
+    photo: '/익명.png',
   },
   {
     name: '장세인',
     cohort: '석사 49기',
     company: '토스증권',
-    photo: 'https://via.placeholder.com/180x220?text=장세인',
+    photo: '/익명.png',
   },
   {
     name: '김정훈',
@@ -164,7 +160,7 @@ const partTimeStudents = [
     name: '백하나',
     cohort: '석사 49기',
     company: '한국산업은행',
-    photo: 'https://via.placeholder.com/180x220?text=백하나',
+    photo: '/익명.png',
   },
   {
     name: '양병수',
@@ -176,37 +172,37 @@ const partTimeStudents = [
     name: '박지영',
     cohort: '석사 50기',
     company: '신한카드',
-    photo: 'https://via.placeholder.com/180x220?text=박지영',
+    photo: '/익명.png',
   },
   {
     name: '문요셉',
     cohort: '석사 50기',
     company: '신한라이프',
-    photo: 'https://via.placeholder.com/180x220?text=문요셉',
+    photo: '/익명.png',
   },
   {
     name: '김효진',
     cohort: '석사 50기',
     company: '신한DS',
-    photo: 'https://via.placeholder.com/180x220?text=김효진',
+    photo: '/익명.png',
   },
   {
     name: '권성민',
     cohort: '석사 50기',
     company: '기업은행',
-    photo: 'https://via.placeholder.com/180x220?text=권성민',
+    photo: '/익명.png',
   },
   {
     name: '지상희',
     cohort: '석사 50기',
     company: '신한DS',
-    photo: 'https://via.placeholder.com/180x220?text=지상희',
+    photo: '/익명.png',
   },
   {
     name: '강정근',
     cohort: '석사 50기',
     company: '피앤피시큐어',
-    photo: 'https://via.placeholder.com/180x220?text=강정근',
+    photo: '/익명.png',
   },
   {
     name: '어진철',
@@ -238,6 +234,9 @@ const Faculty = () => {
                 <li>이메일: <a href={`mailto:${advisor.email}`}>{advisor.email}</a></li>
                 <li>연구실: {advisor.office}</li>
                 <li>분야: {advisor.researchArea}</li>
+                <li>
+                  <Link to="/professor-kang" className="homepage-link">homepage</Link>
+                </li>
               </ul>
             </div>
           </div>
