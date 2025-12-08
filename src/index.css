@@ -62,7 +62,7 @@ html {
 }
 
 body {
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+  font-family: 'Pretendard', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
     sans-serif;
   -webkit-font-smoothing: antialiased;
@@ -70,6 +70,7 @@ body {
   color: var(--text-primary);
   line-height: 1.6;
   overflow-x: hidden;
+  overflow-y: auto;
   margin: 0;
   padding: 0;
   min-height: 100vh;
@@ -499,6 +500,12 @@ body::before {
   flex-direction: column;
 }
 
+/* 소개 섹션 박스 높이 조정 */
+.intro-section .home-card {
+  height: auto;
+  min-height: 450px;
+}
+
 .home-card:hover {
   transform: translateY(-6px);
   box-shadow: 0 25px 50px rgba(0, 0, 0, 0.25);
@@ -508,9 +515,9 @@ body::before {
 /* ===== Card Content ===== */
 .intro-text {
   flex: 1;
-    display: flex;
+  display: flex;
   flex-direction: column;
-    justify-content: center;
+  justify-content: center;
   font-size: 1.1rem;
   line-height: 1.8;
   color: var(--text-secondary);
@@ -561,16 +568,16 @@ body::before {
   margin: 0;
 }
 
-/* ===== People Page ===== */
-.people-page {
+/* ===== Members Page ===== */
+.members-page {
   padding-bottom: var(--space-16);
 }
 
-.people-section {
+.members-section {
   margin-bottom: var(--space-16);
 }
 
-.people-heading {
+.members-heading {
   font-size: 1.8rem;
   font-weight: 700;
   color: var(--text-primary);
@@ -578,13 +585,13 @@ body::before {
   text-align: left;
 }
 
-.people-grid {
+.members-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
   gap: var(--space-6);
 }
 
-.people-card {
+.members-card {
   background: #ffffff;
   border: 1px solid rgba(15, 23, 42, 0.08);
   border-radius: var(--radius-lg);
@@ -597,25 +604,25 @@ body::before {
   transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
-.people-card:hover {
+.members-card:hover {
   transform: translateY(-4px);
   box-shadow: var(--shadow-md);
 }
 
-.advisor-card {
+.faculty-card {
   flex-direction: row;
   align-items: center;
   gap: var(--space-8);
 }
 
-.people-photo-wrapper {
+.members-photo-wrapper {
   flex-shrink: 0;
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
-.people-photo {
+.members-photo {
   width: 160px;
   height: 200px;
   object-fit: cover;
@@ -623,52 +630,52 @@ body::before {
   background: var(--bg-tertiary);
 }
 
-.people-photo.large {
+.members-photo.large {
   width: 200px;
   height: 240px;
   border-radius: var(--radius-xl);
 }
 
-.people-info {
+.members-info {
   text-align: center;
   display: flex;
   flex-direction: column;
   gap: var(--space-2);
 }
 
-.advisor-card .people-info {
+.faculty-card .members-info {
   text-align: left;
 }
 
-.people-name {
+.members-name {
   font-size: 1.3rem;
   font-weight: 600;
   color: var(--text-primary);
 }
 
-.people-role {
+.members-role {
   font-size: 1rem;
   color: var(--text-secondary);
 }
 
-.people-major {
+.members-major {
   font-size: 1rem;
   color: var(--text-secondary);
   font-weight: 500;
 }
 
-.people-detail-major {
+.members-detail-major {
   font-size: 0.95rem;
   color: var(--text-muted);
 }
 
-.people-cohort,
-.people-company {
+.members-cohort,
+.members-company {
   font-size: 0.95rem;
   color: var(--text-muted);
 }
 
-.people-meta {
+.members-meta {
   list-style: none;
   padding: 0;
   margin: 0;
@@ -679,12 +686,12 @@ body::before {
   color: var(--text-secondary);
 }
 
-.people-meta a {
+.members-meta a {
   color: var(--primary);
   text-decoration: none;
 }
 
-.people-meta a:hover {
+.members-meta a:hover {
   text-decoration: underline;
 }
 
@@ -700,30 +707,30 @@ body::before {
   text-decoration: underline;
 }
 
-.people-links {
+.members-links {
   display: flex;
   gap: var(--space-4);
   margin-top: var(--space-3);
 }
 
-.people-links a {
+.members-links a {
   color: var(--primary);
   font-weight: 500;
   text-decoration: none;
 }
 
-.people-links a:hover {
+.members-links a:hover {
   text-decoration: underline;
 }
 
 @media (max-width: 768px) {
-  .advisor-card {
+  .faculty-card {
     flex-direction: column;
     align-items: center;
     text-align: center;
   }
 
-  .advisor-card .people-info {
+  .faculty-card .members-info {
     text-align: center;
     align-items: center;
   }
@@ -979,8 +986,8 @@ body::before {
         justify-content: center;
     }
 
-  /* People page - no extra padding */
-  .people-page {
+  /* Members page - no extra padding */
+  .members-page {
     padding-top: 0;
   }
 

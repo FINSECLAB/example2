@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
-import { setupPageAnimations } from '../utils/scrollAnimation';
 import { getLatestNews } from '../data/newsData';
 
 const Home = () => {
@@ -16,10 +15,10 @@ const Home = () => {
     setFixedBlur(null);
     setScrollY(0);
     
-    // 스크롤 애니메이션 초기화
-    setTimeout(() => {
-      setupPageAnimations();
-    }, 100);
+    // 배경 블러 초기화 (Home 페이지는 스크롤에 따라 관리)
+    document.documentElement.style.setProperty('--bg-blur', '0px');
+    
+    // setupPageAnimations() 호출 제거 - App.js에서 처리
   }, []);
 
   useEffect(() => {
@@ -89,10 +88,9 @@ const Home = () => {
         <div className="container">
           <div className="home-row one-col">
             <div className="home-card">
-              <h2 className="section-title small">연구소 소개</h2>
               <div className="intro-text">
-                <p>금융회사들은 지속적으로 발생하는 해킹 및 개인정보 유출 사고로 인해 정보보안을 강화하고 있습니다. 금융보안 연구실은 금융권 정보보안 법규, 정책, 기술에 대한 전문 연구를 수행합니다.</p>
-                <p>금융회사 보안 점검 방법론, 금융망 분리 규정, 전자금융시스템 보안 검증, 전자금융 인증기술 등에 대한 연구를 통해 전자금융거래법, 개인정보보호법, 신용정보보호법 등 관련 법규를 준수할 수 있도록 지원합니다.</p>
+                <p>금융 서비스의 안전성은 엄격한 컴플라이언스 준수와 선제적인 위험 관리에서 시작됩니다. 우리 금융보안연구실은 해킹과 정보 유출 위협을 기술적 관점에서 깊이 있게 이해하고, 이를 효과적으로 통제·관리하기 위한 법·제도적 대응 방안과 보안성 검증 체계를 중점적으로 연구합니다.</p>
+                <p>특히 전자금융거래법, 신용정보법 등 복잡한 규제 환경을 심층 분석하여 금융 인프라에 최적화된 보안 가이드라인과 정책 모델을 수립하고, 클라우드, AI 등 신기술 도입 시 발생할 수 있는 리스크를 정책적 관점에서 진단하며, 망분리 규제 개선과 같은 현업의 핵심 난제에 대해 실효성 있는 해법을 제시합니다.</p>
               </div>
             </div>
           </div>
@@ -162,7 +160,7 @@ const Home = () => {
               <h4 className="footer-box-title">
                 연락처
               </h4>
-              <p>02-3290-5944</p>
+              <p>02-3290-5944<br />finseclab0717@gmail.com</p>
             </div>
           </div>
         </div>

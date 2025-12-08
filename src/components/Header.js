@@ -48,7 +48,7 @@ const Header = () => {
           <div className="nav-logo">
             <Link to="/" onClick={handleLogoClick}>
               <img src={`${process.env.PUBLIC_URL}/finsec.png`} alt="FinSec Lab Logo" className="nav-logo-img" />
-              <h1>Finsec lab</h1>
+              <h1>Finsec Lab</h1>
             </Link>
           </div>
           <ul className={`nav-menu ${isMenuOpen ? 'active' : ''}`}>
@@ -63,17 +63,17 @@ const Header = () => {
             </li>
             <li className="nav-item">
               <Link 
-                to="/faculty" 
-                className={`nav-link ${isActive('/faculty') || isActive('/students') ? 'active' : ''}`}
+                to="/members" 
+                className={`nav-link ${isActive('/members') ? 'active' : ''}`}
                 onClick={closeMenu}
               >
-                People
+                Members
               </Link>
             </li>
             <li className="nav-item">
               <Link 
-                to="/papers" 
-                className={`nav-link ${isActive('/papers') || isActive('/conferences') ? 'active' : ''}`}
+                to="/publications" 
+                className={`nav-link ${isActive('/publications') ? 'active' : ''}`}
                 onClick={closeMenu}
               >
                 Publications
@@ -82,7 +82,7 @@ const Header = () => {
             <li className="nav-item">
               <Link 
                 to="/news" 
-                className={`nav-link ${isActive('/news') || isActive('/announcements') || isActive('/institute-news') ? 'active' : ''}`}
+                className={`nav-link ${isActive('/news') ? 'active' : ''}`}
                 onClick={closeMenu}
               >
                 News

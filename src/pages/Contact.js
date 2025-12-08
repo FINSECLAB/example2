@@ -21,11 +21,16 @@ const Contact = () => {
                 </div>
                 <div className="contact-info-item">
                   <h4>랩장</h4>
-                  <p>배준호, 이메일</p>
+                  <p>배준호, bjhbae@korea.ac.kr</p>
                 </div>
                 <div className="contact-info-item">
                   <h4>연락처</h4>
-                  <p>02-3290-5944</p>
+                  <p>02-3290-5944<br />finseclab0717@gmail.com</p>
+                </div>
+                <div className="contact-info-item">
+                  <p style={{ marginTop: 'var(--space-4)', fontStyle: 'italic', color: 'var(--text-secondary)' }}>
+                    연구실에 관심있으신 분들은 랩장 혹은 위 이메일로 연락주시기 바랍니다.
+                  </p>
                 </div>
               </div>
             </div>

@@ -1,11 +1,19 @@
 // 스크롤 애니메이션 유틸리티
+let scrollObserver = null;
+let heroFadeCleanup = null;
+
 export const initScrollAnimation = () => {
+  // 기존 observer 정리
+  if (scrollObserver) {
+    scrollObserver.disconnect();
+  }
+
   const observerOptions = {
     threshold: 0.3,
     rootMargin: '0px 0px -200px 0px'
   };
 
-  const observer = new IntersectionObserver((entries) => {
+  scrollObserver = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
       if (entry.isIntersecting) {
         // 모든 섹션에 동일한 지연 적용
@@ -24,18 +32,23 @@ export const initScrollAnimation = () => {
   // 모든 섹션에 애니메이션 적용
   const sections = document.querySelectorAll('.section');
   sections.forEach(el => {
-    observer.observe(el);
+    scrollObserver.observe(el);
   });
 
-  return observer;
+  return scrollObserver;
 };
 
 // 히어로 섹션 텍스트 사라지는 효과
 export const initHeroTextFade = () => {
+  // 기존 이벤트 리스너 정리
+  if (heroFadeCleanup) {
+    heroFadeCleanup();
+  }
+
   const heroContent = document.querySelector('.hero-content');
   const scrollHint = document.querySelector('.scroll-hint');
   
-  if (!heroContent || !scrollHint) return;
+  if (!heroContent || !scrollHint) return null;
 
   const handleScroll = () => {
     const scrollY = window.scrollY;
@@ -69,22 +82,28 @@ export const initHeroTextFade = () => {
     }
   };
 
-  window.addEventListener('scroll', handleScroll);
+  window.addEventListener('scroll', handleScroll, { passive: true });
   
   // 초기 상태 설정
   heroContent.style.transition = 'opacity 0.3s ease-out, transform 0.3s ease-out';
   scrollHint.style.transition = 'opacity 0.3s ease-out, transform 0.3s ease-out';
   
-  return () => {
+  // 정리 함수 저장
+  heroFadeCleanup = () => {
     window.removeEventListener('scroll', handleScroll);
   };
+  
+  return heroFadeCleanup;
 };
 
 // 페이지 로드 시 애니메이션 초기화
 export const setupPageAnimations = () => {
-  // 페이지 로드 후 약간의 지연을 두고 애니메이션 시작
-  setTimeout(() => {
-    initScrollAnimation();
-    initHeroTextFade();
-  }, 100);
+  // requestAnimationFrame을 사용하여 DOM이 완전히 렌더링된 후 실행
+  requestAnimationFrame(() => {
+    requestAnimationFrame(() => {
+      // 두 번의 requestAnimationFrame으로 렌더링 완료 보장
+      initScrollAnimation();
+      initHeroTextFade();
+    });
+  });
 };

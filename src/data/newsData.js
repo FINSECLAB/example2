@@ -2,7 +2,7 @@
 export const newsData = [
   {
     id: 1,
-    date: '2025.09.11~12',
+    date: '2025. 09. 11~12',
     title: '제 4회 금융보안워크샵 참여',
     sortDate: '2025-09-12' // 정렬용 날짜
   },
@@ -33,7 +33,7 @@ export const newsData = [
   {
     id: 6,
     date: '2025. 11. 06',
-    title: '삼성금융캠퍼스',
+    title: '금융권 사이버보안 사고 사례 및 사이버보험 트렌드 세미나 강연',
     sortDate: '2025-11-06'
   },
   {
@@ -73,6 +73,7 @@ export const getLatestNews = (count = 5) => {
 export const getAllNewsSorted = () => {
   return [...newsData].sort((a, b) => new Date(b.sortDate) - new Date(a.sortDate));
 };
+
 
 
 

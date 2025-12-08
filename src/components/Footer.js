@@ -28,7 +28,6 @@ const Footer = () => {
         {/* 하단 스트립 */}
         <div className="footer-bottom-strip">
           <div className="footer-links">
-            <Link to="/location">연구실위치</Link>
             <Link to="/contact">연락처</Link>
             <a href="#legal">법적고지</a>
             <a href="#privacy">개인정보처리방침</a>

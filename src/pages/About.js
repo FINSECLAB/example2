@@ -7,8 +7,18 @@ const About = () => {
       <div className="about-container">
         <div className="about-content">
           <h1 className="about-title">About</h1>
-          <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
-          <p>Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable source. Lorem Ipsum comes from sections 1.10.32 and 1.10.33 of "de Finibus Bonorum et Malorum" (The Extremes of Good and Evil) by Cicero, written in 45 BC. This book is a treatise on the theory of ethics, very popular during the Renaissance. The first line of Lorem Ipsum, "Lorem ipsum dolor sit amet..", comes from a line in section 1.10.32.</p>
+          <div className="intro-text">
+            <p>지속되고 있는 금융권 해킹사고, 개인정보 유출 사고 등으로 인해 금융회사들은 정보보호를 강화하기 위한 노력을 기울이고 있습니다. 금융보안 연구실은 금융권에 특화된 정보보호 법규 및 정책 연구와 정보보호 기술 연구를 병행하고 있습니다.</p>
+            <p>주요 연구 대상은 다음과 같습니다.</p>
+            <ul style={{ marginTop: 'var(--space-4)', paddingLeft: 'var(--space-6)' }}>
+              <li>금융보안 정책 및 법규 연구</li>
+              <li>금융권 해킹방지 연구</li>
+              <li>전자금융 인증기법 연구</li>
+              <li>전자금융기반시설 취약점 분석 및 모의해킹 연구</li>
+              <li>디지털자산 보안기술 연구</li>
+            </ul>
+            <p style={{ marginTop: 'var(--space-4)' }}>특히, 전자금융거래법, 개인정보보호법, 신용정보보호법 등 관련 법규 준수를 위한 금융회사 보안점검 방법론, 금융권 망분리 규제, 전자금융시스템 보안성 검증, 전자금융 인증기법 등을 중점 연구를 하고 있습니다.</p>
+          </div>
         </div>
       </div>
     </div>

@@ -1,56 +1,68 @@
 import React, { useEffect } from 'react';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
 import Header from './components/Header';
 import ScrollToTop from './components/ScrollToTop';
 import Home from './pages/Home';
 import Contact from './pages/Contact';
-import Vision from './pages/Vision';
-import History from './pages/History';
-import ResearchAreas from './pages/ResearchAreas';
-import Location from './pages/Location';
 import Faculty from './pages/Faculty';
 import ProfessorKang from './pages/ProfessorKang';
-import Students from './pages/Students';
 import Papers from './pages/Papers';
-import Conferences from './pages/Conferences';
-import Announcements from './pages/Announcements';
-import InstituteNews from './pages/InstituteNews';
-import JoinUs from './pages/JoinUs';
+import Projects from './pages/Projects';
 import About from './pages/About';
 import News from './pages/News';
 import { setupPageAnimations } from './utils/scrollAnimation';
 
-function App() {
+function AppContent() {
+  const location = useLocation();
+
   useEffect(() => {
-    setupPageAnimations();
-  }, []);
+    // DOM이 완전히 로드된 후 애니메이션 초기화
+    const timer = setTimeout(() => {
+      setupPageAnimations();
+    }, 300);
+    
+    return () => clearTimeout(timer);
+  }, [location.pathname]);
+
+  useEffect(() => {
+    // Home 페이지가 아닌 경우 배경 블러 적용
+    if (location.pathname !== '/' && location.pathname !== '/home') {
+      // 스크롤 내려서 흐려졌을 때처럼 블러 적용 (약 5px)
+      document.documentElement.style.setProperty('--bg-blur', '5px');
+    } else {
+      // Home 페이지는 블러 초기화 (Home 컴포넌트에서 스크롤에 따라 관리)
+      document.documentElement.style.setProperty('--bg-blur', '0px');
+    }
+
+    return () => {
+      // 컴포넌트 언마운트 시 블러 초기화는 하지 않음 (다음 페이지로 전환 시 유지)
+    };
+  }, [location.pathname]);
 
   return (
-    <Router>
+    <div className="App">
+      <Header />
+      <main className="main-content">
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/about" element={<About />} />
+          <Route path="/news" element={<News />} />
+          <Route path="/members" element={<Faculty />} />
+          <Route path="/professor-kang" element={<ProfessorKang />} />
+          <Route path="/publications" element={<Papers />} />
+          <Route path="/contact" element={<Contact />} />
+          <Route path="/projects" element={<Projects />} />
+        </Routes>
+      </main>
+    </div>
+  );
+}
+
+function App() {
+  return (
+    <Router basename={process.env.PUBLIC_URL || '/'}>
       <ScrollToTop />
-      <div className="App">
-        <Header />
-        <main className="main-content">
-          <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="/about" element={<About />} />
-            <Route path="/news" element={<News />} />
-            <Route path="/vision" element={<Vision />} />
-            <Route path="/history" element={<History />} />
-            <Route path="/research-areas" element={<ResearchAreas />} />
-            <Route path="/location" element={<Location />} />
-            <Route path="/faculty" element={<Faculty />} />
-            <Route path="/professor-kang" element={<ProfessorKang />} />
-            <Route path="/students" element={<Students />} />
-            <Route path="/papers" element={<Papers />} />
-            <Route path="/conferences" element={<Conferences />} />
-            <Route path="/announcements" element={<Announcements />} />
-            <Route path="/institute-news" element={<InstituteNews />} />
-            <Route path="/contact" element={<Contact />} />
-            <Route path="/projects" element={<JoinUs />} />
-          </Routes>
-        </main>
-      </div>
+      <AppContent />
     </Router>
   );
 }

@@ -7,7 +7,7 @@ const ProfessorKang = () => {
     <div className="page professor-page">
       <div className="professor-container">
         <div className="professor-header">
-          <Link to="/faculty" className="back-link">← People로 돌아가기</Link>
+          <Link to="/members" className="back-link">← Members로 돌아가기</Link>
         </div>
 
         <div className="professor-content">
