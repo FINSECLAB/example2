@@ -1,14 +1,14 @@
 {
   "files": {
-    "main.css": "/static/css/main.5aaf925c.css",
-    "main.js": "/static/js/main.7b7c22d7.js",
+    "main.css": "/static/css/main.b89e0adb.css",
+    "main.js": "/static/js/main.efb78818.js",
     "static/media/걸어서고대속으로2-01.jpg": "/static/media/걸어서고대속으로2-01.aed98f7e295a57db1fa8.jpg",
     "index.html": "/index.html",
-    "main.5aaf925c.css.map": "/static/css/main.5aaf925c.css.map",
-    "main.7b7c22d7.js.map": "/static/js/main.7b7c22d7.js.map"
+    "main.b89e0adb.css.map": "/static/css/main.b89e0adb.css.map",
+    "main.efb78818.js.map": "/static/js/main.efb78818.js.map"
   },
   "entrypoints": [
-    "static/css/main.5aaf925c.css",
-    "static/js/main.7b7c22d7.js"
+    "static/css/main.b89e0adb.css",
+    "static/js/main.efb78818.js"
   ]
 }
